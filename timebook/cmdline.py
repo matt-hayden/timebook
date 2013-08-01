@@ -76,7 +76,7 @@ def parse_options(parser):
     return options, args
 
 
-def run_from_cmdline():
+def main():
     parser = make_parser()
     options, args = parse_options(parser)
     config = parse_config(options.config)
@@ -90,3 +90,7 @@ def run_from_cmdline():
         parser.error('%s\n    %s' % (e.args[0], ' '.join(e.args[1])))
     except CommandError as e:
         parser.error("%s" % e)
+	return 0
+if __name__ == '__main__':
+	import sys
+	sys.exit(main())
